@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advent of code</title>
+    <script src="./day14/quest.js"></script>
+    <style>
+      #get-result {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+      }
+      .result-container {
+        padding: 20px;
+        border: 1px solid black;
+      }
+      .result-container p {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0;
+        margin-bottom: 1rem;
+      }
+      #result {
+        font-weight: 700;
+        color: red;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Advent of code</h1>
+    <input type="file" id="input_file" name="input_file" accept="txt" />
+    <button id="get-result" onclick="doStuff()">Get result</button>
+    <div class="result-container">
+      <p>Result:</p>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>

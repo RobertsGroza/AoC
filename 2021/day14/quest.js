@@ -58,9 +58,10 @@ const processStep = (input, ruleObj) => {
   return newString;
 }
 
-
-// Lets coun't just pair frequencies because after some steps the RAM will be full
-// if we will store current string etc
+/**
+ * Lets coun't just pair frequencies because after some steps the RAM will be full
+ * if we will store current string etc
+ */
 const processSecondInput = (readings, steps) => {
   const [template, ruleString] = readings.split("\r\n\r\n");
   const rules = ruleString.split("\r\n").map(el => el.split(" -> "));
@@ -111,13 +112,17 @@ const processSecondInput = (readings, steps) => {
     charCounts[el[1]] += pairFrequencies[el];
   });
 
-  // Because we count pairs.. char count is 2x more than it should be
-  // F.e. ...NBAN... B in NB and BA is counted 2 times
+  /**
+   * Because we count pairs.. char count is 2x more than it should be
+   * F.e. ...NBAN... B in NB and BA is counted 2 times
+   */
   Object.keys(charCounts).forEach(char => {
     charCounts[char] /= 2;
   })
-  // First char and last char is counted only one times and we already divided them by 2
-  // (add 0.5 which would mean 1 before division)
+  /**
+   * First char and last char is counted only one times and we already divided them by 2
+   * (add 0.5 which would mean 1 before division)
+  */
   charCounts[template[0]] += 0.5;
   charCounts[template[template.length - 1]] += 0.5;
 
